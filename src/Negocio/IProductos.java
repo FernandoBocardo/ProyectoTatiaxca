@@ -18,4 +18,5 @@ public interface IProductos {
     public Producto consultarPorId(Long idProducto);
     public Producto consultarPorNombre(String nombreProducto);
     public List<Producto> consultarTodos();
+    public List<Producto> consultarPorCategoria(Long idCategoria);
 }

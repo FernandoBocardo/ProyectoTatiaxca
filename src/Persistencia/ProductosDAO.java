@@ -172,4 +172,32 @@ public class ProductosDAO extends ConexionBD implements IProductos {
         }
         return listaProductos;
     }
+    
+    @Override
+    public List<Producto> consultarPorCategoria(Long idCategoria) {
+        List<Producto> listaProductos = new ArrayList<>();
+        try (Connection conn = getConexion();
+                PreparedStatement pst = conn.prepareStatement("SELECT * FROM productos WHERE id_categoria = "+idCategoria);
+                ResultSet rs = pst.executeQuery()) {
+            while (rs.next()) {
+                Producto producto = new Producto();
+                producto.setIdProducto(rs.getLong("id_producto"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setPrecioCompra(rs.getFloat("precioCompra"));
+                producto.setPrecioVenta(rs.getFloat("precioVenta"));
+                producto.setStock(rs.getInt("stock"));
+                producto.setDescripcion(rs.getString("descripcion"));
+                producto.setUnidadMedida(rs.getString("unidadMedida"));
+                producto.setIdCategoria(rs.getLong("id_categoria"));
+                producto.setIdGerente(rs.getLong("id_gerente"));
+                producto.setIdProveedor(rs.getLong("id_proveedor"));
+                producto.setIdMenu(rs.getLong("id_menu"));
+                listaProductos.add(producto);
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en: " + e.getMessage());
+        }
+        return listaProductos;
+    }
+    
 }

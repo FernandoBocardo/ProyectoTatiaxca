@@ -42,7 +42,7 @@ public class frmCarrito extends javax.swing.JFrame {
     float cambio;
     
     /**
-     * Creates new form frmCategorias
+     * Creates new form frmProductos
      */
         public frmCarrito(List<ProductoCarrito> productosCarrito) {
             initComponents();
@@ -1199,12 +1199,13 @@ public class frmCarrito extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlBodyLayout.createSequentialGroup()
-                                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblLicuados1)
-                                            .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                 .addComponent(btnEfectivo, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
-                                                .addComponent(btnTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)))
+                                                .addComponent(btnTarjeta, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                                            .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(lblLicuados1)
+                                                .addComponent(txtSubtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(37, 37, 37))
                                     .addGroup(pnlBodyLayout.createSequentialGroup()
                                         .addGap(0, 0, Short.MAX_VALUE)

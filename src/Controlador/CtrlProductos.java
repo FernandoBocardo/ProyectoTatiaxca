@@ -53,6 +53,10 @@ public class CtrlProductos {
         return new ProductosDAO().consultarPorNombre(nombreProducto);
     }
     
+    public List<Producto> consultarPorCategoria(Long idCategoria){
+        return new ProductosDAO().consultarPorCategoria(idCategoria);
+    }
+    
     public List<Producto> consultarTodos(){
         return new ProductosDAO().consultarTodos();
     }

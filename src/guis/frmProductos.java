@@ -4,9 +4,7 @@
  */
 package guis;
 
-import Controlador.CtrlCategorias;
 import Controlador.CtrlProductos;
-import Dominio.Categoria;
 import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.awt.BorderLayout;
@@ -31,18 +29,19 @@ import javax.swing.border.EmptyBorder;
  *
  * @author Usuario
  */
-public class frmCategorias extends javax.swing.JFrame {
+public class frmProductos extends javax.swing.JFrame {
 
     protected List<ProductoCarrito> productosCarrito;
     protected ProductoCarrito productoCarrito;
     private int elementCount;
+    Long idCategoria;
     
     /**
      * Creates new form frmCategorias
      */
-    public frmCategorias() {
+    public frmProductos(Long idCategoria) {
         initComponents();
-        
+        this.idCategoria = idCategoria;
         //imagen origen
         Image img = new ImageIcon(getClass().getResource("/imagenes/logo tatiaxca.png")).getImage();
         //escala imagen
@@ -55,9 +54,9 @@ public class frmCategorias extends javax.swing.JFrame {
         cargarBotones();
     }
     
-    public frmCategorias(List<ProductoCarrito> productosCarrito) {
+    public frmProductos(List<ProductoCarrito> productosCarrito, Long idCategoria) {
         initComponents();
-        
+        this.idCategoria = idCategoria;
         //imagen origen
         Image img = new ImageIcon(getClass().getResource("/imagenes/logo tatiaxca.png")).getImage();
         //escala imagen
@@ -69,15 +68,18 @@ public class frmCategorias extends javax.swing.JFrame {
         this.productoCarrito = new ProductoCarrito();
         cargarBotones();
     }
+
+    private frmProductos() {
+    }
     
     private void cargarBotones()
     {
-        List<Categoria> categoriasRegistradas = CtrlCategorias.getInstance().consultarTodos();
-        panelBotones.add(getBotones(categoriasRegistradas, panelBotones));
+        List<Producto> productosRegistrados = CtrlProductos.getInstance().consultarPorCategoria(idCategoria);
+        panelBotones.add(getBotones(productosRegistrados, panelBotones));
         panelBotones.updateUI();
     }
     
-    public JPanel getBotones(List<Categoria> categoriasRegistradas, JPanel jPanel) {
+    public JPanel getBotones(List<Producto> productosRegistrados, JPanel jPanel) {
         // this will become the content pane of the frame
         JPanel elementsPanel = new JPanel(new GridLayout(0,1,2,2));
         elementCount = 0;
@@ -91,37 +93,37 @@ public class frmCategorias extends javax.swing.JFrame {
                 JScrollPane.HORIZONTAL_SCROLLBAR_NEVER)
         );
         
-        List<List<Categoria>> listascategorias = new ArrayList<>();
-        int cantidadCategorias = categoriasRegistradas.size();
+        List<List<Producto>> listasProductos = new ArrayList<>();
+        int cantidadProductos = productosRegistrados.size();
         int j = 0;
-        while(cantidadCategorias > 0)
+        while(cantidadProductos > 0)
         {
             int i = 0;
-            List<Categoria> renglon = new ArrayList<>();
+            List<Producto> renglon = new ArrayList<>();
             while(i < 6)
             {
-                if(cantidadCategorias > 0)
+                if(cantidadProductos > 0)
                 {
-                    renglon.add(categoriasRegistradas.get(j));
-                    cantidadCategorias--;
+                    renglon.add(productosRegistrados.get(j));
+                    cantidadProductos--;
                     j++;
                 }
                 i++;
             }
-            listascategorias.add(renglon);
+            listasProductos.add(renglon);
         }
         
-        for (List<Categoria> renglonCategorias: listascategorias) 
+        for (List<Producto> renglonProductos: listasProductos) 
         {
-            elementsPanel.add(getPanelFila(renglonCategorias));
+            elementsPanel.add(getPanelFila(renglonProductos));
         }
         jPanel.setBackground(Color.white);
         jPanel.updateUI();
         return jPanel;
     }
 
-    private JPanel getPanelFila(List<Categoria> renglonCategorias) {
-        JPanel p = new PanelBotonCategoria(this, renglonCategorias);
+    private JPanel getPanelFila(List<Producto> renglonProductos) {
+        JPanel p = new PanelBotonProducto(this, renglonProductos);
         elementCount++;
         return p;
     }
@@ -181,7 +183,7 @@ public class frmCategorias extends javax.swing.JFrame {
 
         lblCategorias.setFont(new java.awt.Font("Segoe UI Emoji", 0, 70)); // NOI18N
         lblCategorias.setForeground(new java.awt.Color(91, 91, 91));
-        lblCategorias.setText("Categorias");
+        lblCategorias.setText("Productos");
 
         btnCancelar.setBackground(new java.awt.Color(91, 91, 91));
         btnCancelar.setFont(new java.awt.Font("Segoe UI Emoji", 1, 15)); // NOI18N
@@ -269,18 +271,14 @@ public class frmCategorias extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCategorias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmProductos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -289,7 +287,7 @@ public class frmCategorias extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCategorias().setVisible(true);
+                new frmProductos().setVisible(true);
             }
         });
     }

@@ -15,6 +15,24 @@ import java.util.List;
  */
 public class CtrlCategorias {
 
+    private static volatile CtrlCategorias instance;
+    
+    public static CtrlCategorias getInstance() 
+    {
+        CtrlCategorias result = instance;
+        if (result != null) {
+            return result;
+        }
+        synchronized(CtrlProductos.class) 
+        {
+            if(instance == null) 
+            {
+                instance = new CtrlCategorias();
+            }
+        return instance;
+        }
+    }
+    
     public boolean agregar(Categoria categoria) {
         return new CategoriasDAO().agregar(categoria);
     }

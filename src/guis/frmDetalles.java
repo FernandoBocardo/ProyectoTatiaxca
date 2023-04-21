@@ -25,13 +25,14 @@ public class frmDetalles extends javax.swing.JFrame {
 
     private List<ProductoCarrito> productosCarrito;
     private ProductoCarrito productoCarrito;
+    private frmProductos frmProductos;
     
     /**
-     * Creates new form frmCategorias
+     * Creates new form frmProductos
      */
-    public frmDetalles(List<ProductoCarrito> productosCarrito, ProductoCarrito productoCarrito) {
+    public frmDetalles(List<ProductoCarrito> productosCarrito, ProductoCarrito productoCarrito, frmProductos frmProductos) {
         initComponents();
-        
+        this.frmProductos = frmProductos;
         //imagen origen
         Image img = new ImageIcon(getClass().getResource("/imagenes/logo tatiaxca.png")).getImage();
         //escala imagen
@@ -342,7 +343,7 @@ public class frmDetalles extends javax.swing.JFrame {
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         // TODO add your handling code here:
-        new frmCategorias(productosCarrito).setVisible(true);
+        frmProductos.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 

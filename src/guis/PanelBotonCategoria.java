@@ -4,6 +4,7 @@
  */
 package guis;
 
+import Dominio.Categoria;
 import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.util.ArrayList;
@@ -18,33 +19,33 @@ import javax.swing.JFrame;
 public class PanelBotonCategoria extends javax.swing.JPanel {
 
     private frmCategorias frmCategorias;
-    private List<Producto> productosFila;
+    private List<Categoria> categoriasFila;
     
     /**
      * Creates new form PanelBotonCategoria
      */
-    public PanelBotonCategoria(frmCategorias frmCategorias, List<Producto> productosFila) {
+    public PanelBotonCategoria(frmCategorias frmCategorias, List<Categoria> categoriasFila) {
         initComponents();
         this.setVisible(true);
         this.frmCategorias = frmCategorias;
-        this.productosFila = productosFila;
-        this.btnProducto1.setVisible(false);
-        this.btnProducto2.setVisible(false);
-        this.btnProducto3.setVisible(false);
-        this.btnProducto4.setVisible(false);
-        this.btnProducto5.setVisible(false);
-        this.btnProducto6.setVisible(false);
+        this.categoriasFila = categoriasFila;
+        this.btnCategoria1.setVisible(false);
+        this.btnCategoria2.setVisible(false);
+        this.btnCategoria3.setVisible(false);
+        this.btnCategoria4.setVisible(false);
+        this.btnCategoria5.setVisible(false);
+        this.btnCategoria6.setVisible(false);
         List<JButton> botones = new ArrayList<>();
-        botones.add(btnProducto1);
-        botones.add(btnProducto2);
-        botones.add(btnProducto3);
-        botones.add(btnProducto4);
-        botones.add(btnProducto5);
-        botones.add(btnProducto6);
+        botones.add(btnCategoria1);
+        botones.add(btnCategoria2);
+        botones.add(btnCategoria3);
+        botones.add(btnCategoria4);
+        botones.add(btnCategoria5);
+        botones.add(btnCategoria6);
         int i = 0;
-        while(i < productosFila.size())
+        while(i < categoriasFila.size())
         {
-            botones.get(i).setText(productosFila.get(i).getNombre());
+            botones.get(i).setText(categoriasFila.get(i).getNombre());
             botones.get(i).setVisible(true);
             //botones.get(i).addActionListener(al);
             i++;
@@ -60,87 +61,87 @@ public class PanelBotonCategoria extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnProducto2 = new javax.swing.JButton();
-        btnProducto1 = new javax.swing.JButton();
-        btnProducto4 = new javax.swing.JButton();
-        btnProducto5 = new javax.swing.JButton();
-        btnProducto6 = new javax.swing.JButton();
-        btnProducto3 = new javax.swing.JButton();
+        btnCategoria2 = new javax.swing.JButton();
+        btnCategoria1 = new javax.swing.JButton();
+        btnCategoria4 = new javax.swing.JButton();
+        btnCategoria5 = new javax.swing.JButton();
+        btnCategoria6 = new javax.swing.JButton();
+        btnCategoria3 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(255, 255, 255));
         setMaximumSize(new java.awt.Dimension(1166, 82));
         setPreferredSize(new java.awt.Dimension(1166, 82));
 
-        btnProducto2.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto2.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto2.setText("Americano");
-        btnProducto2.setBorder(null);
-        btnProducto2.setBorderPainted(false);
-        btnProducto2.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria2.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria2.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria2.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria2.setText("Categoria");
+        btnCategoria2.setBorder(null);
+        btnCategoria2.setBorderPainted(false);
+        btnCategoria2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto2ActionPerformed(evt);
+                btnCategoria2ActionPerformed(evt);
             }
         });
 
-        btnProducto1.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto1.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto1.setText("Americano");
-        btnProducto1.setBorder(null);
-        btnProducto1.setBorderPainted(false);
-        btnProducto1.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria1.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria1.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria1.setText("Categoria");
+        btnCategoria1.setBorder(null);
+        btnCategoria1.setBorderPainted(false);
+        btnCategoria1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto1ActionPerformed(evt);
+                btnCategoria1ActionPerformed(evt);
             }
         });
 
-        btnProducto4.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto4.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto4.setText("Americano");
-        btnProducto4.setBorder(null);
-        btnProducto4.setBorderPainted(false);
-        btnProducto4.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria4.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria4.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria4.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria4.setText("Categoria");
+        btnCategoria4.setBorder(null);
+        btnCategoria4.setBorderPainted(false);
+        btnCategoria4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto4ActionPerformed(evt);
+                btnCategoria4ActionPerformed(evt);
             }
         });
 
-        btnProducto5.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto5.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto5.setText("Americano");
-        btnProducto5.setBorder(null);
-        btnProducto5.setBorderPainted(false);
-        btnProducto5.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria5.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria5.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria5.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria5.setText("Categoria");
+        btnCategoria5.setBorder(null);
+        btnCategoria5.setBorderPainted(false);
+        btnCategoria5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto5ActionPerformed(evt);
+                btnCategoria5ActionPerformed(evt);
             }
         });
 
-        btnProducto6.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto6.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto6.setText("Americano");
-        btnProducto6.setBorder(null);
-        btnProducto6.setBorderPainted(false);
-        btnProducto6.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria6.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria6.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria6.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria6.setText("Categoria");
+        btnCategoria6.setBorder(null);
+        btnCategoria6.setBorderPainted(false);
+        btnCategoria6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto6ActionPerformed(evt);
+                btnCategoria6ActionPerformed(evt);
             }
         });
 
-        btnProducto3.setBackground(new java.awt.Color(193, 232, 213));
-        btnProducto3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
-        btnProducto3.setForeground(new java.awt.Color(91, 91, 91));
-        btnProducto3.setText("Americano");
-        btnProducto3.setBorder(null);
-        btnProducto3.setBorderPainted(false);
-        btnProducto3.addActionListener(new java.awt.event.ActionListener() {
+        btnCategoria3.setBackground(new java.awt.Color(193, 232, 213));
+        btnCategoria3.setFont(new java.awt.Font("Segoe UI Emoji", 1, 19)); // NOI18N
+        btnCategoria3.setForeground(new java.awt.Color(91, 91, 91));
+        btnCategoria3.setText("Categoria");
+        btnCategoria3.setBorder(null);
+        btnCategoria3.setBorderPainted(false);
+        btnCategoria3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnProducto3ActionPerformed(evt);
+                btnCategoria3ActionPerformed(evt);
             }
         });
 
@@ -150,17 +151,17 @@ public class PanelBotonCategoria extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(btnProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria3, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnProducto6, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCategoria6, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -168,12 +169,12 @@ public class PanelBotonCategoria extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProducto6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCategoria2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCategoria4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCategoria5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCategoria6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCategoria1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCategoria3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -181,56 +182,43 @@ public class PanelBotonCategoria extends javax.swing.JPanel {
     private void continuar(int i)
     {
         i--;
-        frmCategorias.productoCarrito.setNombre(productosFila.get(i).getNombre());
-        Long categoria = productosFila.get(i).getIdCategoria();
-        int categoriaInt = categoria.intValue();
-        switch(categoriaInt)
-        {
-            case 1:
-            {
-                new frmCafeBolsaTipo(frmCategorias.productosCarrito, frmCategorias.productoCarrito).setVisible(true);
-                break;
-            }
-            case 2:
-            {
-                new frmSabores(frmCategorias.productosCarrito, frmCategorias.productoCarrito).setVisible(true);
-                break;
-            }
-        }
+        frmCategorias.productoCarrito.setNombre(categoriasFila.get(i).getNombre());
+        Long categoria = categoriasFila.get(i).getIdCategoria();
+        new frmProductos(frmCategorias.productosCarrito, categoria).setVisible(true);
         frmCategorias.dispose();
     }
     
-    private void btnProducto2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto2ActionPerformed
+    private void btnCategoria2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria2ActionPerformed
         continuar(2);
-    }//GEN-LAST:event_btnProducto2ActionPerformed
+    }//GEN-LAST:event_btnCategoria2ActionPerformed
 
-    private void btnProducto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto1ActionPerformed
+    private void btnCategoria1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria1ActionPerformed
         continuar(1);
-    }//GEN-LAST:event_btnProducto1ActionPerformed
+    }//GEN-LAST:event_btnCategoria1ActionPerformed
 
-    private void btnProducto4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto4ActionPerformed
+    private void btnCategoria4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria4ActionPerformed
         continuar(4);
-    }//GEN-LAST:event_btnProducto4ActionPerformed
+    }//GEN-LAST:event_btnCategoria4ActionPerformed
 
-    private void btnProducto5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto5ActionPerformed
+    private void btnCategoria5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria5ActionPerformed
         continuar(5);
-    }//GEN-LAST:event_btnProducto5ActionPerformed
+    }//GEN-LAST:event_btnCategoria5ActionPerformed
 
-    private void btnProducto6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto6ActionPerformed
+    private void btnCategoria6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria6ActionPerformed
         continuar(6);
-    }//GEN-LAST:event_btnProducto6ActionPerformed
+    }//GEN-LAST:event_btnCategoria6ActionPerformed
 
-    private void btnProducto3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProducto3ActionPerformed
+    private void btnCategoria3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCategoria3ActionPerformed
         continuar(3);
-    }//GEN-LAST:event_btnProducto3ActionPerformed
+    }//GEN-LAST:event_btnCategoria3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnProducto1;
-    private javax.swing.JButton btnProducto2;
-    private javax.swing.JButton btnProducto3;
-    private javax.swing.JButton btnProducto4;
-    private javax.swing.JButton btnProducto5;
-    private javax.swing.JButton btnProducto6;
+    private javax.swing.JButton btnCategoria1;
+    private javax.swing.JButton btnCategoria2;
+    private javax.swing.JButton btnCategoria3;
+    private javax.swing.JButton btnCategoria4;
+    private javax.swing.JButton btnCategoria5;
+    private javax.swing.JButton btnCategoria6;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@ package cafemanager;
 
 import Controlador.CtrlProductos;
 import guis.frmCategorias;
+import guis.frmProductos;
 
 /**
  *

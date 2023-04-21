@@ -32,17 +32,17 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-              <Component id="btnCategoria1" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto1" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCategoria2" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto2" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCategoria3" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto3" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCategoria4" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto4" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCategoria5" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto5" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="btnCategoria6" min="-2" pref="183" max="-2" attributes="0"/>
+              <Component id="btnProducto6" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -52,12 +52,12 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnCategoria2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCategoria4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCategoria5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCategoria6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCategoria1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
-                  <Component id="btnCategoria3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto2" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto4" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto5" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto6" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                  <Component id="btnProducto3" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -65,7 +65,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnCategoria2">
+    <Component class="javax.swing.JButton" name="btnProducto2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -76,17 +76,17 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto2ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCategoria1">
+    <Component class="javax.swing.JButton" name="btnProducto1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -97,17 +97,17 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCategoria4">
+    <Component class="javax.swing.JButton" name="btnProducto4">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -118,17 +118,17 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria4ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto4ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCategoria5">
+    <Component class="javax.swing.JButton" name="btnProducto5">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -139,17 +139,17 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria5ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto5ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCategoria6">
+    <Component class="javax.swing.JButton" name="btnProducto6">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -160,17 +160,17 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria6ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto6ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCategoria3">
+    <Component class="javax.swing.JButton" name="btnProducto3">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="d5" green="e8" red="c1" type="rgb"/>
@@ -181,14 +181,14 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="5b" green="5b" red="5b" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Categoria"/>
+        <Property name="text" type="java.lang.String" value="Americano"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="null"/>
         </Property>
         <Property name="borderPainted" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCategoria3ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProducto3ActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
