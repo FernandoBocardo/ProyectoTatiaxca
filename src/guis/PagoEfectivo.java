@@ -6,6 +6,7 @@ package guis;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -147,7 +148,11 @@ public class PagoEfectivo extends javax.swing.JPanel {
         // TODO add your handling code here:
         String valorTextField = txtPago.getText();
         this.pago = Float.parseFloat(valorTextField);
-                
+        System.out.println("OLA1:" +this.pago);
+        System.out.println("OLA2: "+this.total);
+        if(this.pago<this.total){
+            JOptionPane.showMessageDialog(null, "El pago recibido no es suficiente.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }else{
         float cambio = this.pago - this.total;
         txtCambio.setText(String.valueOf(cambio));
         
@@ -155,6 +160,7 @@ public class PagoEfectivo extends javax.swing.JPanel {
         this.frmCarrito.getBotonTarjeta().setVisible(false);
         
         this.frmCarrito.cambio = cambio;
+        }
     }//GEN-LAST:event_btnCalcularActionPerformed
     
     

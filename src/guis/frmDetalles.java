@@ -16,6 +16,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.util.List;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -177,6 +178,11 @@ public class frmDetalles extends javax.swing.JFrame {
 
         txtNota.setColumns(20);
         txtNota.setRows(5);
+        txtNota.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNotaKeyTyped(evt);
+            }
+        });
         jScrollPane1.setViewportView(txtNota);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -377,7 +383,14 @@ public class frmDetalles extends javax.swing.JFrame {
         }
         
         productoCarrito.setNota(txtNota.getText());
-        
+        if(bgLeche.getSelection() == null)
+        {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar el tipo de leche.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
+        if(bgTamanho.getSelection() == null)
+        {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar el tamaño.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
         if(bgLeche.getSelection() != null && bgTamanho.getSelection() != null)
         {
             continuar();
@@ -387,6 +400,14 @@ public class frmDetalles extends javax.swing.JFrame {
     private void rbLecheRegularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbLecheRegularActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rbLecheRegularActionPerformed
+
+    private void txtNotaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNotaKeyTyped
+        // TODO add your handling code here:
+        if(txtNota.getText().length()>=200){
+            JOptionPane.showMessageDialog(null, "Has superado el límite de caracteres permitidos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNotaKeyTyped
 
     private void continuar()
     {
