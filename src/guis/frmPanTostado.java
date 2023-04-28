@@ -4,6 +4,8 @@
  */
 package guis;
 
+import Controlador.CtrlProductos;
+import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.awt.Component;
 import java.awt.Insets;
@@ -198,7 +200,7 @@ public class frmPanTostado extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.productoCarrito.setSabor("Dulce");
         this.productoCarrito.setTamaño("");
-        this.productoCarrito.setPrecio(20);
+        
         continuar();
 
     }//GEN-LAST:event_btnDulceActionPerformed
@@ -207,12 +209,14 @@ public class frmPanTostado extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.productoCarrito.setSabor("Salado");
         this.productoCarrito.setTamaño("");
-        this.productoCarrito.setPrecio(20);
+        
         continuar();
 
     }//GEN-LAST:event_btnSaladoActionPerformed
 
     private void continuar() {
+        Producto producto = CtrlProductos.getInstance().consultarPorNombre(productoCarrito.getNombre());
+        this.productoCarrito.setPrecio(producto.getPrecioVenta());
         this.productoCarrito.setCantidad(1);
         this.productoCarrito.setUnidadMedida("");
         this.productosCarrito.add(this.productoCarrito);

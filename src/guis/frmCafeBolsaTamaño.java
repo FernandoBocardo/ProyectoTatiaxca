@@ -4,6 +4,7 @@
  */
 package guis;
 
+import Controlador.CtrlProductos;
 import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.awt.Component;
@@ -215,19 +216,22 @@ public class frmCafeBolsaTamaño extends javax.swing.JFrame {
 
     private void btn250grActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn250grActionPerformed
         this.productoCarrito.setTamaño("250");
-        this.productoCarrito.setPrecio(25);
+        Producto producto = CtrlProductos.getInstance().consultarPorNombre(productoCarrito.getNombre());
+        this.productoCarrito.setPrecio(producto.getPrecioVenta()*0.5f);
         continuar();
     }//GEN-LAST:event_btn250grActionPerformed
 
     private void btn1kgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn1kgActionPerformed
         this.productoCarrito.setTamaño("1000");
-        this.productoCarrito.setPrecio(100);
+        Producto producto = CtrlProductos.getInstance().consultarPorNombre(productoCarrito.getNombre());
+        this.productoCarrito.setPrecio(producto.getPrecioVenta()*2);
         continuar();
     }//GEN-LAST:event_btn1kgActionPerformed
 
     private void btn500grActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn500grActionPerformed
         this.productoCarrito.setTamaño("500");
-        this.productoCarrito.setPrecio(50);
+        Producto producto = CtrlProductos.getInstance().consultarPorNombre(productoCarrito.getNombre());
+        this.productoCarrito.setPrecio(producto.getPrecioVenta());
         continuar();
     }//GEN-LAST:event_btn500grActionPerformed
 

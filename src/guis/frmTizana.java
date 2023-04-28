@@ -4,6 +4,8 @@
  */
 package guis;
 
+import Controlador.CtrlProductos;
+import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.awt.Component;
 import java.awt.Insets;
@@ -213,7 +215,7 @@ public class frmTizana extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.productoCarrito.setSabor("Frutas tropicales");
         this.productoCarrito.setTamaño("Regular");
-        this.productoCarrito.setPrecio(40);
+        
         continuar();
     }//GEN-LAST:event_btnFrutasTropicalesActionPerformed
 
@@ -221,7 +223,7 @@ public class frmTizana extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.productoCarrito.setSabor("Explosion manzana");
         this.productoCarrito.setTamaño("Regular");
-        this.productoCarrito.setPrecio(40);
+        
         continuar();
     }//GEN-LAST:event_btnExplosionManzanaActionPerformed
 
@@ -229,11 +231,13 @@ public class frmTizana extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.productoCarrito.setSabor("Frutas silvestres");
         this.productoCarrito.setTamaño("Regular");
-        this.productoCarrito.setPrecio(40);
+        
         continuar();
     }//GEN-LAST:event_btnFrutasSilvestresActionPerformed
 
     private void continuar() {
+        Producto producto = CtrlProductos.getInstance().consultarPorNombre(productoCarrito.getNombre());
+        this.productoCarrito.setPrecio(producto.getPrecioVenta());
         this.productoCarrito.setCantidad(1);
         this.productoCarrito.setUnidadMedida("");
         this.productosCarrito.add(this.productoCarrito);
