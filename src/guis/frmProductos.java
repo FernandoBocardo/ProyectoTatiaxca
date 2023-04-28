@@ -75,6 +75,18 @@ public class frmProductos extends javax.swing.JFrame {
     private void cargarBotones()
     {
         List<Producto> productosRegistrados = CtrlProductos.getInstance().consultarPorCategoria(idCategoria);
+        int i = 0;
+        while(i < productosRegistrados.size())
+        {
+            if(productosRegistrados.get(i).getStock() == 0)
+            {
+                productosRegistrados.remove(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
         panelBotones.add(getBotones(productosRegistrados, panelBotones));
         panelBotones.updateUI();
     }
