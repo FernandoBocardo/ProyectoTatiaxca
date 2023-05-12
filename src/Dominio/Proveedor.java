@@ -78,8 +78,15 @@ public class Proveedor {
         return this.idProveedor == other.idProveedor;
     } 
 
+//    @Override
+//    public String toString() {
+//        return "Proveedor{" + "idProveedor=" + idProveedor + ", nombre=" + nombre + ", contacto=" + contacto + ", listaProductos=" + listaProductos + '}';
+//    } 
+    
     @Override
-    public String toString() {
-        return "Proveedor{" + "idProveedor=" + idProveedor + ", nombre=" + nombre + ", contacto=" + contacto + ", listaProductos=" + listaProductos + '}';
-    }   
+    public String toString()
+    {
+        return nombre;
+    }
+    
 }
