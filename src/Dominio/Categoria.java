@@ -78,8 +78,15 @@ public class Categoria {
         return this.idCategoria == other.idCategoria;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Categoria{" + "idCategoria=" + idCategoria + ", idGerente=" + idGerente + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+//    }
+    
     @Override
-    public String toString() {
-        return "Categoria{" + "idCategoria=" + idCategoria + ", idGerente=" + idGerente + ", nombre=" + nombre + ", descripcion=" + descripcion + '}';
+    public String toString()
+    {
+        return nombre;
     }
+    
 }

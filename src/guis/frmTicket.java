@@ -152,7 +152,6 @@ public class frmTicket extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Avenida ITSON #261, colonia Villa Itson. Cd. Obregón Son. CP 85000");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jLabel3.setVerifyInputWhenFocusTarget(false);
         jLabel3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -160,7 +159,6 @@ public class frmTicket extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Corbel", 0, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Avenida ITSON #261, colonia Villa Itson. Cd. Obregón Son. CP 85000");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.LEADING);
         jLabel4.setVerifyInputWhenFocusTarget(false);
         jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -541,7 +539,7 @@ public class frmTicket extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtCambio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(46, 46, 46))
         );

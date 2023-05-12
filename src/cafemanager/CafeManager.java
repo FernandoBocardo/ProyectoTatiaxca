@@ -5,6 +5,9 @@
 package cafemanager;
 
 import Controlador.CtrlProductos;
+import Dominio.Usuario;
+import guis.frmAdministrarCategorias;
+import guis.frmAdministrarProductos;
 import guis.frmCategorias;
 import guis.frmProductos;
 
@@ -23,7 +26,13 @@ public class CafeManager {
 ////        ctrlProductos.consultarPorId(5L);
 //        System.out.println(ctrlProductos.consultarPorId(5L));
 
-        new frmCategorias().setVisible(true);
+        //new frmCategorias().setVisible(true);
+        
+        
+        Usuario gerente = new Usuario();
+        gerente.setIdUsuario(1L);
+        //new frmAdministrarProductos(gerente).setVisible(true);
+        new frmAdministrarCategorias(gerente).setVisible(true);
         
     }
 

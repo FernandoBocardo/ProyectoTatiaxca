@@ -17,4 +17,5 @@ public interface ICategorias {
     public boolean eliminar(Long idCategoria);
     public Categoria consultarPorId(Long idCategoria);
     public List<Categoria> consultarTodos();
+    public Categoria consultarPorNombre(String nombreCategoria);
 }

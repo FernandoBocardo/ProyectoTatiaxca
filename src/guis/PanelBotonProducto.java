@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -186,7 +187,7 @@ public class PanelBotonProducto extends javax.swing.JPanel {
         int categoriaInt = categoria.intValue();
         switch(categoriaInt)
         {
-            case 1:
+            case 4:
             {
                 new frmCafeBolsaTipo(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
                 break;
@@ -195,6 +196,30 @@ public class PanelBotonProducto extends javax.swing.JPanel {
             {
                 new frmSabores(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
                 break;
+            }
+            case 6:
+            {
+                new frmLicuados(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
+                break;
+            }
+            case 7:
+            {
+                new frmPanTostado(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
+                break;
+            }
+            case 8:
+            {
+                new frmTe(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
+                break;
+            }
+            case 9:
+            {
+                new frmTizana(frmProductos.productosCarrito, frmProductos.productoCarrito, frmProductos).setVisible(true);
+                break;
+            }
+            default:
+            {
+                JOptionPane.showMessageDialog(null, "Error");
             }
         }
         frmProductos.dispose();

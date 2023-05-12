@@ -190,13 +190,23 @@ public class frmCarrito extends javax.swing.JFrame {
         numeroProducto--;
         int cantidad = Integer.parseInt(this.lbCantidadesProductos.get(numeroProducto).getText());
         cantidad++;
-        if(!(this.txtPreciosProductos.get(numeroProducto).getText().equalsIgnoreCase("")))
+        int stockProducto = CtrlProductos.getInstance().consultarPorNombre(productosCarrito.get(numeroProducto).getNombre()).getStock();
+        if(cantidad > stockProducto && stockProducto != -1)
         {
-            this.productosCarrito.get(numeroProducto).setCantidad(cantidad);
-            this.lbCantidadesProductos.get(numeroProducto).setText(String.valueOf(cantidad));
-            this.txtPreciosProductos.get(numeroProducto).setText(String.valueOf(Integer.parseInt(this.lbCantidadesProductos.get(numeroProducto).getText())*productosCarrito.get(numeroProducto).getPrecio()));
-            calcularTotal();
+            JOptionPane.showMessageDialog(this, "No se puede aumentar la cantidad del producto porque no hay stock suficiente",
+                                   "ERROR", JOptionPane.INFORMATION_MESSAGE);
         }
+        else
+        {
+            if(!(this.txtPreciosProductos.get(numeroProducto).getText().equalsIgnoreCase("")))
+            {
+                this.productosCarrito.get(numeroProducto).setCantidad(cantidad);
+                this.lbCantidadesProductos.get(numeroProducto).setText(String.valueOf(cantidad));
+                this.txtPreciosProductos.get(numeroProducto).setText(String.valueOf(Integer.parseInt(this.lbCantidadesProductos.get(numeroProducto).getText())*productosCarrito.get(numeroProducto).getPrecio()));
+                calcularTotal();
+            }
+        }
+        
         
     }
     

@@ -265,7 +265,7 @@
                       <Component id="txtCambio" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="89" max="32767" attributes="0"/>
+                  <EmptySpace pref="119" max="32767" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               </Group>
@@ -314,7 +314,6 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Avenida ITSON #261, colonia Villa Itson. Cd. Obreg&#xf3;n Son. CP 85000"/>
             <Property name="horizontalTextPosition" type="int" value="10"/>
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
@@ -329,7 +328,6 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Avenida ITSON #261, colonia Villa Itson. Cd. Obreg&#xf3;n Son. CP 85000"/>
             <Property name="horizontalTextPosition" type="int" value="10"/>
             <Property name="verifyInputWhenFocusTarget" type="boolean" value="false"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
