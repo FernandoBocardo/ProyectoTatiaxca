@@ -28,9 +28,7 @@ import javax.swing.table.TableColumnModel;
  */
 public class frmAdministrarProductos extends javax.swing.JFrame {
 
-    private boolean estaEditando = false;
     private Long idProductoSeleccionado = 0L;
-    private boolean estaEliminando = false;
     private Usuario gerente;
     
     /**
@@ -792,16 +790,11 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
         this.tblProductos.clearSelection();
-        //this.modificarEliminar(false);
-        //this.limpiar();
-        this.tblProductos.clearSelection();
-        this.estaEditando = false;
+        this.limpiarCampos();
         this.idProductoSeleccionado = 0L;
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccionActionPerformed
-        // TODO add your handling code here:
-        //this.guardar();
         this.accion();
     }//GEN-LAST:event_btnAccionActionPerformed
 
@@ -853,6 +846,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(this, "Se eliminó el producto correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                 this.llenarTablaProductos();
+                this.limpiarCampos();
             }
             else
             {

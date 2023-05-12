@@ -116,4 +116,26 @@ public class CategoriasDAO extends ConexionBD implements ICategorias{
         return categorias;
     }
 
+    @Override
+    public Categoria consultarPorNombre(String nombreCategoria) 
+    {
+        try (Connection conn = getConexion();
+                PreparedStatement pst = conn.prepareStatement("SELECT * FROM categorias WHERE nombre = ?")) {
+            pst.setString(1, nombreCategoria);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                Categoria categoria = new Categoria();
+                categoria.setIdCategoria(rs.getLong("id_categoria"));
+                categoria.setNombre(rs.getString("nombre"));
+                categoria.setDescripcion(rs.getString("descripcion"));
+                categoria.setIdGerente(rs.getLong("id_gerente"));
+                return categoria;
+            }
+            return null;
+        } catch (SQLException e) {
+            System.out.println("Error en: " + e.getMessage());
+            return null;
+        }
+    }
+
 }

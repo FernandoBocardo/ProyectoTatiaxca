@@ -56,4 +56,9 @@ public class CtrlCategorias {
         return new CategoriasDAO().consultarTodos();
 
     }
+    
+    public Categoria consultarPorNombre(String nombreCategoria){
+        return new CategoriasDAO().consultarPorNombre(nombreCategoria);
+    }
+    
 }
