@@ -68,11 +68,13 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
     {
         this.cbxCategoria.removeAllItems();
         this.cbxProveedor.removeAllItems();
+        this.cbxBuscadorPorCategoria.removeAllItems();
         List<Categoria> listaCategorias = CtrlCategorias.getInstance().consultarTodos();
         int i = 0;
         while(i < listaCategorias.size())
         {
             this.cbxCategoria.addItem(listaCategorias.get(i));
+            this.cbxBuscadorPorCategoria.addItem(listaCategorias.get(i));
             i++;
         }
         List<Proveedor> listaProveedores = new ArrayList<>();
@@ -211,228 +213,6 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         return productoSeleccionado;
     }
     
-    
-    //
-
-//    private void initTablaClientes() {
-//        final int columnaId = 0;
-//        ActionListener onEditarClickListener = (ActionEvent e) -> {
-//            int filaSeleccionada = tblProductos.getSelectedRow();
-//            idClienteSelected = (Long) tblProductos.getValueAt(filaSeleccionada, columnaId);
-//            Cliente cliente = clientesDAO.consultar(idClienteSelected);
-//            estaEditando = true;
-//            llenarFormulario(cliente);
-//            modificarEliminar(false);
-//        };
-//
-//        ActionListener onEliminarClickListener = (ActionEvent evt) -> {
-//            int filaSeleccionada = tblProductos.getSelectedRow();
-//            idClienteSelected = (Long) tblProductos.getValueAt(filaSeleccionada, columnaId);
-//            estaEliminando = true;
-//            Cliente cliente = clientesDAO.consultar(idClienteSelected);
-//            llenarFormulario(cliente);
-//            modificarEliminar(estaEliminando);
-//        };
-//        int indiceColumnaEditar = 5;
-//        int indiceColumnaEliminar = 6;
-//        
-//        TableColumnModel modeloColumnas = this.tblProductos.getColumnModel();
-//        modeloColumnas.getColumn(indiceColumnaEditar).setCellRenderer(new JButtonRenderer("Editar"));
-//        modeloColumnas.getColumn(indiceColumnaEditar).setCellEditor(new JButtonCellEditor(new JTextField(), onEditarClickListener));  
-//        
-//        modeloColumnas.getColumn(indiceColumnaEliminar).setCellRenderer(new JButtonRenderer("Eliminar"));
-//        modeloColumnas.getColumn(indiceColumnaEliminar).setCellEditor(new JButtonCellEditor(new JTextField(), onEliminarClickListener));      
-//    }
-//   
-//    private void modificarEliminar(boolean modificar){
-//        if (modificar == true){
-//            btnAccion.setText("Eliminar");
-//            txtNombre.setEditable(false);
-//            txtPrecioCompra.setEditable(false);
-//            txtPrecioVenta.setEditable(false);
-//            txtStock.setEditable(false);
-//        } else {
-//            btnAccion.setText("Registrar");
-//            txtNombre.setEditable(true);
-//            txtPrecioCompra.setEditable(true);
-//            txtPrecioVenta.setEditable(true);
-//            txtStock.setEditable(true);
-//        }
-//    }
-//    
-//    private void guardar(){
-//        if (this.estaEditando){
-//            this.editar(idClienteSelected);
-//        } else if (this.estaEliminando){
-//            this.eliminar();
-//        } else {
-//            this.agregar();
-//        }
-//    }
-//    
-//    private void agregar() {
-//        String nombre = this.txtNombre.getText();
-//        String direccion = this.txtPrecioCompra.getText();
-//        String rfc = this.txtPrecioVenta.getText();
-//        String telefono = this.txtStock.getText();
-//
-//        if (this.txtNombre.getText().isEmpty() || this.txtPrecioCompra.getText().isEmpty() || this.txtStock.getText().isEmpty() || this.txtPrecioVenta.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacíos", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtNombre.getText().length() > 45) {
-//            JOptionPane.showMessageDialog(this, "Nombre debe tener un máximo de 45 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtPrecioCompra.getText().length() > 100) {
-//            JOptionPane.showMessageDialog(this, "La dirección debe tener un máximo de 100 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtPrecioVenta.getText().length() > 15) {
-//            JOptionPane.showMessageDialog(this, "El RFC debe tener un máximo de 15 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        if (this.txtStock.getText().length() > 15) {
-//            JOptionPane.showMessageDialog(this, "El teléfono debe tener un máximo de 15 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        int opcionSeleccionada = JOptionPane.showConfirmDialog(this, "¿Estás seguro de agregar el cliente?", "Confirmación", JOptionPane.YES_NO_OPTION);
-//
-//        if (opcionSeleccionada == JOptionPane.NO_OPTION) {
-//            return;
-//        }
-//
-//        Cliente clienteNuevo = new Cliente(nombre, direccion, rfc, telefono);
-//        boolean seAgregoCliente = this.clientesDAO.agregar(clienteNuevo);
-//
-//        if (seAgregoCliente) {
-//            JOptionPane.showMessageDialog(this, "Se agregó el nuevo cliente", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            this.limpiar();
-//            this.llenarTabla();
-//        } else {
-//            JOptionPane.showMessageDialog(this, "No fue posible agregar al cliente", "Información", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-    
-//    private void limpiar() {
-//        this.txtNombre.setText("");
-//        this.txtPrecioCompra.setText("");
-//        this.txtPrecioVenta.setText("");
-//        this.txtStock.setText("");
-//    }
-//    
-//    private void editar(Long idCliente){
-//        
-//        if (idCliente == 0L){
-//            JOptionPane.showMessageDialog(this, "El ID del cliente actual es 0", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//        
-//        String nombre = this.txtNombre.getText();
-//        String direccion = this.txtPrecioCompra.getText();
-//        String rfc = this.txtPrecioVenta.getText();
-//        String telefono = this.txtStock.getText();
-//
-//        if (this.txtNombre.getText().isEmpty() || this.txtPrecioCompra.getText().isEmpty() || this.txtStock.getText().isEmpty() || this.txtPrecioVenta.getText().isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Los campos no pueden estar vacíos", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtNombre.getText().length() > 45) {
-//            JOptionPane.showMessageDialog(this, "Nombre debe tener un máximo de 45 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtPrecioCompra.getText().length() > 100) {
-//            JOptionPane.showMessageDialog(this, "La dirección debe tener un máximo de 100 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        if (this.txtPrecioVenta.getText().length() > 15) {
-//            JOptionPane.showMessageDialog(this, "El RFC debe tener un máximo de 15 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//        
-//        if (this.txtStock.getText().length() > 15) {
-//            JOptionPane.showMessageDialog(this, "El teléfono debe tener un máximo de 15 caractéres", "Información", JOptionPane.ERROR_MESSAGE);
-//            return;
-//        }
-//
-//        int opcionSeleccionada = JOptionPane.showConfirmDialog(this, "¿Estás seguro de actualizar el cliente?", "Confirmación", JOptionPane.YES_NO_OPTION);
-//
-//        if (opcionSeleccionada == JOptionPane.NO_OPTION) {
-//            return;
-//        }
-//
-//        Cliente cliente = new Cliente(nombre, direccion, rfc, telefono);
-//
-//        boolean seActualizoCliente = this.clientesDAO.actualizar(idCliente, cliente);
-//
-//        if (seActualizoCliente) {
-//            JOptionPane.showMessageDialog(this, "Cliente actualizado", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            this.limpiar();
-//            this.llenarTabla();
-//            this.estaEditando = false;
-//            this.idClienteSelected = 0L;
-//        } else {
-//            JOptionPane.showMessageDialog(this, "No se pudo actualizar el cliente dado", "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-//    }
-//
-//    private void eliminar() {
-//
-//        int opcionSeleccionada = JOptionPane.showConfirmDialog(this, "¿Estás seguro de eliminar el cliente?", "Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-//
-//        if (opcionSeleccionada == JOptionPane.NO_OPTION) {
-//            idClienteSelected = null;
-//            this.limpiar();
-//            return;
-//        }
-//
-//        boolean seEliminoCliente = this.clientesDAO.eliminar(idClienteSelected);
-//
-//        if (seEliminoCliente) {
-//            JOptionPane.showMessageDialog(this, "Se eliminó el cliente correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
-//            this.limpiar();
-//            this.llenarTabla();
-//            idClienteSelected = 0L;
-//            modificarEliminar(false);
-//            estaEliminando = false;
-//        } else {
-//            JOptionPane.showMessageDialog(this, "No se pudo eliminar el cliente", "Información", JOptionPane.ERROR_MESSAGE);
-//        }
-//
-//    }
-//
-//    private void llenarFormulario(Cliente cliente) {
-//        this.txtNombre.setText(cliente.getNombre());
-//        this.txtPrecioCompra.setText(cliente.getDireccion());
-//        this.txtPrecioVenta.setText(cliente.getRfc());
-//        this.txtStock.setText(cliente.getTelefono());
-//    }
-//    
-//    private void buscarPorNombre() {
-//        List<Cliente> listaClientes = this.clientesDAO.consultarNombre(this.txtBuscador.getText());
-//        DefaultTableModel modeloTabla = (DefaultTableModel)this.tblProductos.getModel();
-//        modeloTabla.setRowCount(0);
-//        listaClientes.forEach(cliente -> {
-//            Object[] fila = new Object[7];
-//            fila[0] = cliente.getId();
-//            fila[1] = cliente.getNombre();
-//            fila[2] = cliente.getDireccion();    
-//            fila[3] = cliente.getRfc();
-//            fila[4] = cliente.getTelefono();
-//            fila[5] = "Editar";
-//            fila[6] = "Eliminar";
-//            modeloTabla.addRow(fila); 
-//        });
-//    }
-//    
-    
     private void buscarPorNombre()
     {
         Producto productoBuscado = CtrlProductos.getInstance().consultarPorNombre(this.txtBuscador.getText());
@@ -441,6 +221,28 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         DefaultTableModel modeloTabla = (DefaultTableModel)this.tblProductos.getModel();
         modeloTabla.setRowCount(0);
         if(listaProductos.isEmpty() || productoBuscado == null)
+        {
+            return;
+        }
+        listaProductos.forEach(producto -> {
+            Object[] fila = new Object[7];
+            fila[0] = producto.getIdProducto();
+            fila[1] = producto.getNombre();
+            fila[2] = producto.getPrecioCompra();    
+            fila[3] = producto.getPrecioVenta();
+            fila[4] = producto.getStock();
+            fila[5] = producto.getUnidadMedida();
+            modeloTabla.addRow(fila); 
+        });
+    }
+    
+    private void buscarPorCategoria()
+    {
+        Categoria categoriaBuscarSeleccionada = (Categoria) this.cbxBuscadorPorCategoria.getSelectedItem();
+        List<Producto> listaProductos = CtrlProductos.getInstance().consultarPorCategoria(categoriaBuscarSeleccionada.getIdCategoria());
+        DefaultTableModel modeloTabla = (DefaultTableModel)this.tblProductos.getModel();
+        modeloTabla.setRowCount(0);
+        if(listaProductos.isEmpty())
         {
             return;
         }
@@ -471,13 +273,17 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         panBusqueda = new javax.swing.JPanel();
         lblBuscador = new javax.swing.JLabel();
         txtBuscador = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
+        btnBuscarPorNombre = new javax.swing.JButton();
         panBuscador = new javax.swing.JScrollPane();
         tblProductos = new javax.swing.JTable();
         btnAgregarNuevo = new javax.swing.JButton();
         btnVer = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        cbxBuscadorPorCategoria = new javax.swing.JComboBox<>();
+        btnBuscarPorCategoria = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         panRegistros = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
         lblPrecioCompra = new javax.swing.JLabel();
@@ -545,10 +351,10 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         lblBuscador.setMinimumSize(new java.awt.Dimension(72, 25));
         lblBuscador.setPreferredSize(new java.awt.Dimension(72, 25));
 
-        btnBuscar.setText("Buscar");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscarPorNombre.setText("Buscar por nombre");
+        btnBuscarPorNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
+                btnBuscarPorNombreActionPerformed(evt);
             }
         });
 
@@ -605,26 +411,21 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Buscar por categoria");
+
+        btnBuscarPorCategoria.setText("Buscar Por Categoria");
+        btnBuscarPorCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarPorCategoriaActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Buscar por nombre");
+
         javax.swing.GroupLayout panBusquedaLayout = new javax.swing.GroupLayout(panBusqueda);
         panBusqueda.setLayout(panBusquedaLayout);
         panBusquedaLayout.setHorizontalGroup(
             panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBusquedaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panBusquedaLayout.createSequentialGroup()
-                        .addComponent(lblBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(324, 324, 324))
-                    .addGroup(panBusquedaLayout.createSequentialGroup()
-                        .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnAgregarNuevo)
-                            .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(panBuscador, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(panBusquedaLayout.createSequentialGroup()
-                                    .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(btnBuscar))))
-                        .addContainerGap(24, Short.MAX_VALUE))))
             .addGroup(panBusquedaLayout.createSequentialGroup()
                 .addGap(165, 165, 165)
                 .addComponent(btnVer)
@@ -633,18 +434,53 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                 .addGap(91, 91, 91)
                 .addComponent(btnEliminar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panBusquedaLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panBusquedaLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panBusquedaLayout.createSequentialGroup()
+                        .addComponent(lblBuscador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(324, 324, 324))
+                    .addGroup(panBusquedaLayout.createSequentialGroup()
+                        .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(panBusquedaLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxBuscadorPorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarPorCategoria)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAgregarNuevo))
+                            .addComponent(panBuscador, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panBusquedaLayout.createSequentialGroup()
+                                .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscarPorNombre)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         panBusquedaLayout.setVerticalGroup(
             panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panBusquedaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(lblBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBuscarPorNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addComponent(btnAgregarNuevo)
+                .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panBusquedaLayout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(btnAgregarNuevo))
+                    .addGroup(panBusquedaLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(cbxBuscadorPorCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscarPorCategoria))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panBuscador, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -652,7 +488,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                     .addComponent(btnVer)
                     .addComponent(btnEditar)
                     .addComponent(btnEliminar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         panRegistros.setBackground(new java.awt.Color(163, 206, 241));
@@ -978,7 +814,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNombreKeyTyped
 
     
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+    private void btnBuscarPorNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorNombreActionPerformed
         if(txtBuscador.getText().equals(""))
         {
             this.llenarTablaProductos();
@@ -987,7 +823,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         {
             this.buscarPorNombre();
         }
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    }//GEN-LAST:event_btnBuscarPorNombreActionPerformed
 
     private void txtIdProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdProductoActionPerformed
         // TODO add your handling code here:
@@ -1031,18 +867,26 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         this.btnAccion.setEnabled(false);
     }//GEN-LAST:event_btnVerActionPerformed
 
+    private void btnBuscarPorCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarPorCategoriaActionPerformed
+        this.buscarPorCategoria();
+    }//GEN-LAST:event_btnBuscarPorCategoriaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccion;
     private javax.swing.JButton btnAgregarNuevo;
-    private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarPorCategoria;
+    private javax.swing.JButton btnBuscarPorNombre;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnVer;
+    private javax.swing.JComboBox<Categoria> cbxBuscadorPorCategoria;
     private javax.swing.JComboBox<Categoria> cbxCategoria;
     private javax.swing.JComboBox<Proveedor> cbxProveedor;
     private javax.swing.JComboBox<String> cbxUnidadMedida;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblBuscador;
     private javax.swing.JLabel lblCategoria;
