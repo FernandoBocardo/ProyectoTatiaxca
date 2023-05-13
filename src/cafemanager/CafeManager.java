@@ -31,8 +31,8 @@ public class CafeManager {
         
         Usuario gerente = new Usuario();
         gerente.setIdUsuario(1L);
-        //new frmAdministrarProductos(gerente).setVisible(true);
-        new frmAdministrarCategorias(gerente).setVisible(true);
+        new frmAdministrarProductos(gerente).setVisible(true);
+        //new frmAdministrarCategorias(gerente).setVisible(true);
         
     }
 
