@@ -111,13 +111,25 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         productoContruido.setNombre(this.txtNombre.getText());
         productoContruido.setPrecioCompra(Float.parseFloat(this.txtPrecioCompra.getText()));
         productoContruido.setPrecioVenta(Float.parseFloat(this.txtPrecioVenta.getText()));
-        productoContruido.setStock(Integer.parseInt(this.txtStock.getText()));
+        if(cbxNoAplica.isSelected()){
+            productoContruido.setStock(-1);
+        }else{
+            productoContruido.setStock(Integer.parseInt(this.txtStock.getText()));
+        }
         productoContruido.setUnidadMedida((String) this.cbxUnidadMedida.getSelectedItem());
         return productoContruido;
     }
     
     private void accion()
     {
+        if (txtNombre.getText().equals("") || txtDescripcion.getText().equals("") || txtPrecioCompra.getText().equals("") || txtPrecioVenta.getText().equals("")
+        || (txtStock.getText().equals("") && !cbxNoAplica.isSelected())) {
+            JOptionPane.showMessageDialog(this, "Debes llenar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        } else {
+            
+        }
+        
         String accion = btnAccion.getText();
         switch(accion)
         {
@@ -129,6 +141,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                     if (CtrlProductos.getInstance().agregar(productoRegistrar)) {
                         JOptionPane.showMessageDialog(this, "Se registró el producto correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                         limpiarCampos();
+                        txtStock.setEnabled(true); 
                         this.llenarTablaProductos();
                         this.llenarComboBox();
                     } else {
@@ -145,6 +158,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                     if (CtrlProductos.getInstance().actualizar(Long.parseLong(this.txtIdProducto.getText()), productoActualizar)) {
                         JOptionPane.showMessageDialog(this, "Se actualizó el producto correctamente", "Información", JOptionPane.INFORMATION_MESSAGE);
                         limpiarCampos();
+                        txtStock.setEnabled(true); 
                         this.llenarTablaProductos();
                         this.llenarComboBox();
                     } else {
@@ -165,6 +179,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         this.txtPrecioVenta.setText("");
         this.txtStock.setText("");
         this.txtDescripcion.setText("");
+        this.cbxNoAplica.setSelected(false);
     }
     
     private void cargarDatosProducto()
@@ -179,7 +194,13 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         this.txtNombre.setText(productoSeleccionado.getNombre());
         this.txtPrecioCompra.setText(String.valueOf(productoSeleccionado.getPrecioCompra()));
         this.txtPrecioVenta.setText(String.valueOf(productoSeleccionado.getPrecioVenta()));
-        this.txtStock.setText(String.valueOf(productoSeleccionado.getStock()));
+        if (productoSeleccionado.getStock() == -1) {
+                cbxNoAplica.setSelected(true);
+                txtStock.setEnabled(false); 
+            } else{
+            this.txtStock.setText(String.valueOf(productoSeleccionado.getStock()));
+            cbxNoAplica.setSelected(false);
+        }
         this.txtDescripcion.setText(productoSeleccionado.getDescripcion());
         int i = 0;
         while(i < this.cbxCategoria.getItemCount())
@@ -318,6 +339,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         cbxUnidadMedida = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         txtIdProducto = new javax.swing.JTextField();
+        cbxNoAplica = new javax.swing.JCheckBox();
         lblCategorias1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -621,6 +643,13 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
             }
         });
 
+        cbxNoAplica.setText("No aplica");
+        cbxNoAplica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxNoAplicaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panRegistrosLayout = new javax.swing.GroupLayout(panRegistros);
         panRegistros.setLayout(panRegistrosLayout);
         panRegistrosLayout.setHorizontalGroup(
@@ -641,13 +670,19 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                     .addComponent(lblPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbxUnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panRegistrosLayout.createSequentialGroup()
                         .addComponent(cbxCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(21, 21, 21))))
+                        .addGap(21, 21, 21))
+                    .addGroup(panRegistrosLayout.createSequentialGroup()
+                        .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtPrecioVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panRegistrosLayout.createSequentialGroup()
+                                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cbxNoAplica))
+                            .addComponent(cbxUnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecioCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(panRegistrosLayout.createSequentialGroup()
                 .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -700,7 +735,8 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbxNoAplica))
                 .addGap(11, 11, 11)
                 .addGroup(panRegistrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUnidadMedida, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -799,6 +835,11 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStockKeyTyped
+        char c= evt.getKeyChar();
+        if (c != '\b' && (c < '0' || c > '9')) {
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Has ingresado un carácter no válido. Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+        }
         if (txtStock.getText().length() >= 15) {
             JOptionPane.showMessageDialog(null, "Has superado el límite de caracteres permitidos.", "Advertencia", JOptionPane.WARNING_MESSAGE);
             evt.consume();
@@ -808,7 +849,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
 
     private void txtPrecioVentaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioVentaKeyTyped
         char c= evt.getKeyChar();
-        if (c < '0' || c > '9') {
+        if (c != '\b' && (c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "Has ingresado un carácter no válido. Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
@@ -821,7 +862,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
 
     private void txtPrecioCompraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioCompraKeyTyped
         char c= evt.getKeyChar();
-        if (c < '0' || c > '9') {
+        if (c != '\b' && (c < '0' || c > '9')) {
             evt.consume();
             JOptionPane.showMessageDialog(null, "Has ingresado un carácter no válido. Solo se permiten números.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
@@ -901,7 +942,6 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Hubo un error al intentar eliminar el producto", "ERROR", JOptionPane.ERROR_MESSAGE);
             }
         }  
-        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerActionPerformed
@@ -917,7 +957,25 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         // TODO add your handling code here:
         llenarTablaProductos();
         txtBuscador.setText("");
+        txtNombre.setText("");
+        txtDescripcion.setText("");
+        txtStock.setText("");
+        txtPrecioCompra.setText("");
+        txtPrecioVenta.setText("");
+        txtIdProducto.setText("");
+        this.cbxNoAplica.setSelected(false);
+        txtStock.setEnabled(true);
     }//GEN-LAST:event_btnRestaurarActionPerformed
+
+    private void cbxNoAplicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxNoAplicaActionPerformed
+        // TODO add your handling code here:
+        if(cbxNoAplica.isSelected()){
+            txtStock.setEnabled(false);
+            txtStock.setText("");
+        }else{
+            txtStock.setEnabled(true); 
+        }
+    }//GEN-LAST:event_cbxNoAplicaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccion;
@@ -931,6 +989,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
     private javax.swing.JButton btnVer;
     private javax.swing.JComboBox<Categoria> cbxBuscadorPorCategoria;
     private javax.swing.JComboBox<Categoria> cbxCategoria;
+    private javax.swing.JCheckBox cbxNoAplica;
     private javax.swing.JComboBox<Proveedor> cbxProveedor;
     private javax.swing.JComboBox<String> cbxUnidadMedida;
     private javax.swing.JLabel jLabel1;

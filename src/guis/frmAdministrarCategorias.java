@@ -94,7 +94,7 @@ public class frmAdministrarCategorias extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Debes llenar todos los campos", "Advertencia", JOptionPane.WARNING_MESSAGE);
             return;
         } else {
-            System.out.println("error");
+            
         }
 
         String accion = btnAccion.getText();

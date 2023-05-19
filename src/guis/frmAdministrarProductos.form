@@ -424,13 +424,22 @@
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtPrecioVenta" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="txtStock" min="-2" pref="80" max="-2" attributes="0"/>
-                              <Component id="cbxUnidadMedida" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtPrecioCompra" min="-2" pref="80" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="cbxCategoria" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txtPrecioVenta" min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="txtStock" min="-2" pref="80" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="cbxNoAplica" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="cbxUnidadMedida" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtPrecioCompra" min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -503,6 +512,7 @@
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtStock" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="lblStock" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cbxNoAplica" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -844,6 +854,14 @@
                 <Component class="javax.swing.JTextField" name="txtIdProducto">
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtIdProductoActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JCheckBox" name="cbxNoAplica">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="No aplica"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxNoAplicaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
