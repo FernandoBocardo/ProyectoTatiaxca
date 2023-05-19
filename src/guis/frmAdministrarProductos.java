@@ -879,6 +879,7 @@ public class frmAdministrarProductos extends javax.swing.JFrame {
         this.limpiarCampos();
         this.idProductoSeleccionado = 0L;
         new frmMenu(gerente).setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccionActionPerformed
