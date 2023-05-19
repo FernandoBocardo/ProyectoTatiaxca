@@ -66,6 +66,7 @@ public class frmCafeBolsaTipo extends javax.swing.JFrame {
         btnTurco = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Café en bolsa");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
 

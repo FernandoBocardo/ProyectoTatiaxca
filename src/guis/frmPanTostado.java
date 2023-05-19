@@ -63,6 +63,7 @@ public class frmPanTostado extends javax.swing.JFrame {
         btnSalado = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pan tostado");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
 

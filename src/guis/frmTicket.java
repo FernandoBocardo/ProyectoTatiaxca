@@ -8,9 +8,11 @@ import java.awt.Component;
 import java.awt.Insets;
 import javax.swing.border.Border;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -70,8 +72,23 @@ public class frmTicket extends javax.swing.JFrame {
             this.txtPreciosProductos.get(i).setText(txtPreciosProductos.get(i).getText());
             i++;
         }
+        centerForm();
     }
 
+     private void centerForm() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height;
+        
+        int formWidth = this.getWidth();
+        int formHeight = this.getHeight();
+        
+        int x = (screenWidth - formWidth) / 2;
+        int y = (screenHeight - formHeight) / 2;
+        
+        this.setLocation(x, y);
+    }
+    
     private frmTicket() {
     }
     
@@ -128,8 +145,10 @@ public class frmTicket extends javax.swing.JFrame {
         txtCambio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Ticket");
         setBackground(new java.awt.Color(255, 255, 255));
         setForeground(new java.awt.Color(51, 51, 255));
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 

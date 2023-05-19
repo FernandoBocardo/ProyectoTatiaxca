@@ -6,6 +6,7 @@ package guis;
 
 import Controlador.CtrlProductos;
 import Controlador.CtrlVentas;
+import Dominio.Gerente;
 import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import Dominio.Venta;
@@ -362,6 +363,7 @@ public class frmCarrito extends javax.swing.JFrame {
         btn_cancelarVenta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Carrito de compras");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1080,7 +1082,7 @@ public class frmCarrito extends javax.swing.JFrame {
                                     .addGroup(pnlBodyLayout.createSequentialGroup()
                                         .addComponent(btnVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btn_cancelarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btn_cancelarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(pnlBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBodyLayout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1525,8 +1527,13 @@ public class frmCarrito extends javax.swing.JFrame {
                 "Confirmar cancelación", JOptionPane.YES_NO_OPTION);
         if (opcion == JOptionPane.YES_OPTION) {
             productosCarrito.clear();
-            new frmCategorias(productosCarrito).setVisible(true);
+            //new frmCategorias(productosCarrito).setVisible(true);
+            Gerente gerente = new Gerente();
+            gerente.setIdUsuario(1L);
+            new frmMenu(gerente).setVisible(true);
             this.dispose();
+            this.dispose();
+            
         }
     }//GEN-LAST:event_btn_cancelarVentaActionPerformed
 

@@ -84,6 +84,7 @@ public class frmDetalles extends javax.swing.JFrame {
         lblLicuados4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Detalles");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
 

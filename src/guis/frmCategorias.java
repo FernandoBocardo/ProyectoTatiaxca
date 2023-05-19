@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -7,6 +7,7 @@ package guis;
 import Controlador.CtrlCategorias;
 import Controlador.CtrlProductos;
 import Dominio.Categoria;
+import Dominio.Gerente;
 import Dominio.Producto;
 import Dominio.ProductoCarrito;
 import java.awt.BorderLayout;
@@ -15,10 +16,12 @@ import java.awt.Component;
 import java.awt.Insets;
 import javax.swing.border.Border;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -53,6 +56,7 @@ public class frmCategorias extends javax.swing.JFrame {
         productosCarrito = new ArrayList<>();
         this.productoCarrito = new ProductoCarrito();
         cargarBotones();
+        centerForm();
     }
     
     public frmCategorias(List<ProductoCarrito> productosCarrito) {
@@ -68,6 +72,19 @@ public class frmCategorias extends javax.swing.JFrame {
         this.productosCarrito = productosCarrito;
         this.productoCarrito = new ProductoCarrito();
         cargarBotones();
+    }
+    private void centerForm() {
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = screenSize.width;
+        int screenHeight = screenSize.height;
+        
+        int formWidth = this.getWidth();
+        int formHeight = this.getHeight();
+        
+        int x = (screenWidth - formWidth) / 2;
+        int y = (screenHeight - formHeight) / 2;
+        
+        this.setLocation(x, y);
     }
     
     private void cargarBotones()
@@ -144,6 +161,7 @@ public class frmCategorias extends javax.swing.JFrame {
         panelBotones = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Categorías");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
 
@@ -249,6 +267,10 @@ public class frmCategorias extends javax.swing.JFrame {
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         // TODO add your handling code here:
+        Gerente gerente = new Gerente();
+        gerente.setIdUsuario(1L);
+        new frmMenu(gerente).setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_btnCancelarActionPerformed
 

@@ -63,6 +63,7 @@ public class frmLicuados extends javax.swing.JFrame {
         btnPlatano = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Licuados");
         setBackground(new java.awt.Color(255, 102, 102));
         setForeground(new java.awt.Color(51, 51, 255));
 
